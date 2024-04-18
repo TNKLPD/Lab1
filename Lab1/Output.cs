@@ -15,24 +15,36 @@ namespace Lab1
 
         public Output(int p, int fi)
         {
-            Console.WriteLine("Input p value:");
-            p = int.Parse(Console.ReadLine());
+            int[] a = new int[4];
+            string[] ak = { "a1", "a2", "a3", "a4" };
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("Input p value:");
+                p = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Input fi value:");
-            fi = int.Parse(Console.ReadLine());
+                Console.WriteLine("Input fi value:");
+                fi = int.Parse(Console.ReadLine());
 
-            Console.Clear();
+                Console.Clear();
 
-            Console.WriteLine($"Your values:\np: {p}\nfi: {fi}");
+                Console.WriteLine($"Your values:\np: {p}\nfi: {fi}");
 
-            C = (double)(p * Math.Pow(e, (fi * 1)));
-            Console.WriteLine("C = " + C.ToString("N"));
+                C = (double)(p * Math.Pow(e, (fi * 1)));
+                Console.WriteLine("C = " + C.ToString("N"));
 
-            Console.WriteLine("Algebraical form: a = x + iy");
-            Console.WriteLine($"Trygonometry form: a = {p}(cos {fi} + i sin {fi})");
-            Console.WriteLine($"Showing form: a = {p}*{e}^i*{fi}");
-            this.p = p;
-            this.fi = fi;
+                Console.WriteLine("Algebraical form: a = x + iy");
+                Console.WriteLine($"Trygonometry form: a = {p}(cos {fi} + i sin {fi})");
+                Console.WriteLine($"Showing form: a = {p}*{e}^i*{fi}");
+                this.p = p;
+                this.fi = fi;
+                a[i] = (int)(double)C;
+            }
+                Console.Clear();
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine($"{ak[i]} = {a[i]}");
+            }
+            Console.WriteLine($"W = (a2 / a1) + a3 * a4 = {(a[1] / a[0]) + a[2] * a[3]}");
         }
 
         public override string ToString()
